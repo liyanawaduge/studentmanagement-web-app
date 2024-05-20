@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Student Management System</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Student Management System</h1>
+		<hr />
+		<h2>Add Student</h2>
+		<br />
+
+		<form action="#" th:action="@{/saveStudent}" th:object="${student}" method="POST" class="needs-validation" novalidate>
+			
+			<div class="row mb-3">
+				<label for="inputEmail3" class="col-sm-2 col-form-label">Student Name</label>
+				<div class="col-sm-10">
+				  <input type="text" th:field="*{name}" class="form-control" id="inputStName" required>
+				  <div class="was-validated">
+					<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+				  </div>
+				</div>
+
+			</div>
+			
+			<fieldset class="row mb-3">
+				<label class="col-form-label col-sm-2">Gender</label>
+				<div class="col-sm-8">
+				  <div class="form-check">
+					<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" th:field="*{gender}" value="M" checked>
+					<label class="form-check-label" for="gridRadios1">
+					  Male
+					</label>
+				  </div>
+				  <div class="form-check">
+					<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" th:field="*{gender}" value="F">
+					<label class="form-check-label" for="gridRadios2">
+					  Female
+					</label>
+				  </div>
+				   <div class="was-validated">
+					<span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" class="text-danger"></span>
+				  </div>
+				</div>
+			</fieldset>
+			
+			<div class="row mb-3">
+				<label for="inputEmail3" class="col-sm-2 col-form-label">Student Address</label>
+				<div class="col-sm-10">
+				  <input type="text" th:field="*{address}" class="form-control" id="inputStAddress" required>
+				  <div class="was-validated">
+					<span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="text-danger"></span>
+				  </div>
+				</div>
+			</div>
+			
+			<div class="row mb-3">
+				<label for="inputEmail3" class="col-sm-2 col-form-label">Student DoB</label>
+				<div class="col-sm-10">
+				  <input type="date" th:field="*{dob}" class="form-control" id="inputStBirthday" required>
+				  <div class="was-validated">
+					<span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}" class="text-danger"></span>
+				  </div>
+				</div>
+			</div>
+			
+			<div class="row mb-3">
+				<label for="inputEmail3" class="col-sm-2 col-form-label">Student Email</label>
+				<div class="col-sm-10">
+				  <input type="email" th:field="*{email}" class="form-control" id="inputStEmail" required>
+				  <div class="was-validated">
+					<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+				  </div>
+				</div>
+			</div>
+			
+			<div class="row mb-3">
+				<label for="inputEmail3" class="col-sm-2 col-form-label">Student Mobile</label>
+				<div class="col-sm-10">
+				  <input type="text" th:field="*{mobile}" class="form-control" id="inputStMobile" required>
+				  <div class="was-validated">
+					<span th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}" class="text-danger"></span>
+				  </div>
+				</div>
+			</div>
+			
+			<div class="row mb-3">
+				<label for="inputEmail3" class="col-sm-2 col-form-label">Student Phone</label>
+				<div class="col-sm-10">
+				  <input type="text" th:field="*{phone}" class="form-control" id="inputStPhone" required>
+				  <div class="was-validated">
+					<span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="text-danger"></span>
+				  </div>
+				</div>
+			</div>
+			
+			<button type="submit" class="btn btn-info col-2"> Save Student</button>	
+
+		</form>
+		<hr>
+		<a th:href ="@{/}"> Back to Student List</a>
+	</div>
+	
+</body>
+</html>
